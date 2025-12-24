@@ -55,14 +55,19 @@ source .venv/bin/activate
 
 ### 2. Installer le package
 
-Via pip :
+Via pip (depuis PyPI) :
 ```bash
-pip install git+https://github.com/kohen-avocats/mcp-server-google-vision.git
+pip install mcp-server-google-vision
 ```
 
 Via uv :
 ```bash
-uv pip install git+https://github.com/kohen-avocats/mcp-server-google-vision.git
+uv pip install mcp-server-google-vision
+```
+
+Ou depuis GitHub :
+```bash
+pip install git+https://github.com/KohenAvocats/mcp-server-google-vision.git
 ```
 
 ### 3. Configurer la clé API
@@ -193,7 +198,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 ## Auteur
 
-Développé par [Maître Hassan KOHEN, avocat en droit pénal à Paris](https://kohenavocats.com/avocat-hassan-kohen/), fondateur de [Kohen Avocats](https://kohenavocats.com).
+Développé par [Maître Hassan KOHEN, avocat pénaliste à Paris](https://kohenavocats.com/avocat-hassan-kohen/), fondateur de [Kohen Avocats](https://kohenavocats.com).
 
 Ce serveur MCP est né d'un besoin concret : permettre à Claude d'analyser les pièces d'un dossier juridique, y compris les documents scannés et manuscrits. Il est aujourd'hui utilisé quotidiennement au cabinet pour :
 - La lecture de pièces adverses scannées
@@ -203,7 +208,8 @@ Ce serveur MCP est né d'un besoin concret : permettre à Claude d'analyser les 
 ## Liens utiles
 
 - [Kohen Avocats - Cabinet d'avocats Paris](https://kohenavocats.com)
-- [Maître Hassan KOHEN, avocat en droit pénal à Paris](https://kohenavocats.com/avocat-hassan-kohen/)
+- [Maître Hassan KOHEN, avocat pénaliste à Paris](https://kohenavocats.com/avocat-hassan-kohen/)
+- [Package PyPI](https://pypi.org/project/mcp-server-google-vision/)
 - [Model Context Protocol](https://modelcontextprotocol.io/introduction)
 - [Google Cloud Vision API](https://cloud.google.com/vision/docs)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
