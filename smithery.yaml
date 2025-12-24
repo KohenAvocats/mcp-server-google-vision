@@ -1,0 +1,22 @@
+# MCP Server Google Vision - Smithery Configuration
+# Developed by Kohen Avocats (https://kohenavocats.com)
+# Author: Maître Hassan KOHEN, avocat pénaliste à Paris (https://kohenavocats.com/avocat-hassan-kohen/)
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      googleApiKey:
+        type: string
+        description: "Your Google Cloud Vision API key. Get one at https://console.cloud.google.com/apis/credentials"
+    required:
+      - googleApiKey
+  commandFunction: |-
+    (config) => ({
+      command: "python",
+      args: ["-m", "mcp_server_google_vision"],
+      env: {
+        GOOGLE_API_KEY: config.googleApiKey
+      }
+    })
