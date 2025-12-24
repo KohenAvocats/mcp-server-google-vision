@@ -5,11 +5,16 @@ WORKDIR /app
 # Install dependencies
 COPY pyproject.toml README.md LICENSE ./
 COPY src/ ./src/
+COPY main.py ./
 
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir . uvicorn starlette
 
 # Set environment variable placeholder
 ENV GOOGLE_API_KEY=""
+ENV PORT=8080
 
-# Run the MCP server
-CMD ["python", "-m", "mcp_server_google_vision"]
+# Expose port
+EXPOSE 8080
+
+# Run the HTTP server
+CMD ["python", "main.py"]
