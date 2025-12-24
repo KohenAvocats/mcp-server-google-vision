@@ -1,14 +1,23 @@
-runtime: "container"
-build:
-  dockerfile: "Dockerfile"
-  dockerBuildPath: "."
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+# MCP Server Google Vision - OCR for LLMs via Google Cloud Vision API
+# Developed by Kohen Avocats (https://kohenavocats.com)
+# Author: Maitre Hassan KOHEN, avocat penaliste a Paris
+
 startCommand:
-  type: "http"
+  type: stdio
   configSchema:
     type: object
+    required:
+      - googleApiKey
     properties:
       googleApiKey:
         type: string
-        description: "Your Google Cloud Vision API key"
-    required:
-      - googleApiKey
+        description: "Your Google Cloud Vision API key for OCR capabilities"
+  commandFunction: |-
+    (config) => ({
+      command: 'uvx',
+      args: ['--from', 'mcp-server-google-vision', 'mcp-google-vision'],
+      env: {
+        GOOGLE_API_KEY: config.googleApiKey
+      }
+    })
