@@ -11,7 +11,7 @@ import uvicorn
 from starlette.middleware.cors import CORSMiddleware
 
 # Import the MCP server instance from our package
-from src.mcp_server_google_vision.server import mcp
+from mcp_server_google_vision.server import mcp
 
 
 def main():
