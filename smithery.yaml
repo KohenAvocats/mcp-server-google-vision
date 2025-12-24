@@ -1,3 +1,11 @@
+# MCP Server Google Vision
+# Developed by Kohen Avocats - https://kohenavocats.com
+# Author: Maître Hassan KOHEN, avocat pénaliste à Paris
+
+build:
+  dockerfile: Dockerfile
+  context: .
+
 startCommand:
   type: stdio
   configSchema:
@@ -5,7 +13,7 @@ startCommand:
     properties:
       googleApiKey:
         type: string
-        description: "Your Google Cloud Vision API key"
+        description: "Your Google Cloud Vision API key. Get one at https://console.cloud.google.com/apis/credentials"
     required:
       - googleApiKey
   commandFunction: |
