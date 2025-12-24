@@ -193,7 +193,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 ## Auteur
 
-Développé par [Hassan Kohen](https://kohenavocats.com/avocat-hassan-kohen/), avocat au Barreau de Paris et fondateur de [Kohen Avocats](https://kohenavocats.com).
+Développé par [Maître Hassan KOHEN, avocat en droit pénal à Paris](https://kohenavocats.com/avocat-hassan-kohen/), fondateur de [Kohen Avocats](https://kohenavocats.com).
 
 Ce serveur MCP est né d'un besoin concret : permettre à Claude d'analyser les pièces d'un dossier juridique, y compris les documents scannés et manuscrits. Il est aujourd'hui utilisé quotidiennement au cabinet pour :
 - La lecture de pièces adverses scannées
@@ -203,7 +203,7 @@ Ce serveur MCP est né d'un besoin concret : permettre à Claude d'analyser les 
 ## Liens utiles
 
 - [Kohen Avocats - Cabinet d'avocats Paris](https://kohenavocats.com)
-- [Hassan Kohen - Avocat](https://kohenavocats.com/avocat-hassan-kohen/)
+- [Maître Hassan KOHEN, avocat en droit pénal à Paris](https://kohenavocats.com/avocat-hassan-kohen/)
 - [Model Context Protocol](https://modelcontextprotocol.io/introduction)
 - [Google Cloud Vision API](https://cloud.google.com/vision/docs)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
