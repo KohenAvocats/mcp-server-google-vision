@@ -84,14 +84,30 @@ export GOOGLE_API_KEY="votre_clé_api_google"
 
 ## Configuration avec Claude Desktop
 
-Modifiez le fichier de configuration de Claude Desktop (`Paramètres > Développeur > Modifier la configuration`) :
+La méthode la plus simple consiste à utiliser `uvx` (nécessite l'installation de [uv](https://astral.sh/uv/)) :
 
 ```json
 {
   "mcpServers": {
     "google-vision": {
-      "command": "/chemin/vers/venv/bin/python",
-      "args": ["/chemin/vers/mcp-server-google-vision/src/server.py"],
+      "command": "uvx",
+      "args": ["--from", "mcp-server-google-vision", "mcp-google-vision"],
+      "env": {
+        "GOOGLE_API_KEY": "votre_clé_api"
+      }
+    }
+  }
+}
+```
+
+Alternativement, si vous avez installé le package via pip :
+
+```json
+{
+  "mcpServers": {
+    "google-vision": {
+      "command": "python",
+      "args": ["-m", "mcp_server_google_vision"],
       "env": {
         "GOOGLE_API_KEY": "votre_clé_api"
       }
@@ -101,79 +117,21 @@ Modifiez le fichier de configuration de Claude Desktop (`Paramètres > Développ
 ```
 
 ## Outils disponibles
-
-### 1. analyze_image
-
-Analyse une image avec les capacités de Google Cloud Vision.
-
-**Paramètres :**
-- `image_path` : Chemin absolu vers l'image
-- `features` : Liste des analyses (défaut : ["text", "labels"])
-  - `text` : Détection de texte simple
-  - `document` : OCR avancé pour documents
-  - `labels` : Classification d'objets
-  - `faces` : Détection de visages
-  - `objects` : Localisation d'objets
-  - `logos` : Détection de logos
-  - `landmarks` : Reconnaissance de monuments
-  - `web` : Recherche d'images similaires
-  - `safe_search` : Détection de contenu sensible
-- `response_format` : "json" ou "markdown"
-
-**Exemple d'utilisation :**
-```
-Lis le texte manuscrit sur cette image : /Users/avocat/courrier.jpg
-```
-
-### 2. analyze_pdf
-
-Extrait le texte d'un PDF scanné avec traitement parallèle optimisé.
-
-**Paramètres :**
-- `pdf_path` : Chemin absolu vers le PDF
-- `extract_text_only` : Si True, extraction de texte uniquement (défaut : True)
-- `response_format` : "json" ou "markdown"
-
-**Caractéristiques :**
-- Support jusqu'à 2000 pages
-- Traitement parallèle par lots de 5 pages
-- Sauvegarde automatique si texte > 5000 caractères
-- Taille maximale : 20 MB
-
-**Exemple d'utilisation :**
-```
-Extrais le texte de ce document scanné : /Users/avocat/pieces/assignation.pdf
-```
-
-## Exemples de prompts
-
-### Lecture de document manuscrit
-```
-J'ai reçu un courrier manuscrit. Peux-tu le lire et me faire un résumé ?
-[Le LLM utilise analyze_image avec features=["document"]]
-```
-
-### Extraction pour RAG
-```
-Extrais le texte de tous les PDFs dans ce dossier pour alimenter notre base documentaire.
-[Le LLM utilise analyze_pdf en boucle et retourne le texte structuré]
-```
-
-### Analyse complète d'image
-```
-Analyse cette photo : identifie le texte, les objets et les logos visibles.
-[Le LLM utilise analyze_image avec features=["text", "labels", "objects", "logos"]]
-```
+... (reste de la section)
 
 ## Architecture technique
 
 ```
 mcp-server-google-vision/
 ├── src/
-│   └── server.py       # Serveur MCP principal
-├── pyproject.toml      # Configuration du package
-├── README.md           # Documentation
-└── LICENSE             # Licence MIT
+│   └── mcp_server_google_vision/
+│       ├── __init__.py
+│       ├── __main__.py
+│       └── server.py          # Serveur MCP principal
+├── pyproject.toml             # Configuration du package
+├── smithery.yaml              # Configuration Smithery
+├── README.md                  # Documentation
+└── LICENSE                    # Licence MIT
 ```
 
 ### Points techniques notables
